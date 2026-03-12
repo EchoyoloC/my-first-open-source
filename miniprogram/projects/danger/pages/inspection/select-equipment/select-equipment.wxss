@@ -1,0 +1,144 @@
+/* 全局容器 */
+.select-container {
+  padding: 20rpx;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* 搜索栏 */
+.search-bar {
+  margin-bottom: 20rpx;
+}
+
+.search-input {
+  width: 100%;
+  padding: 22rpx;
+  background-color: #ffffff;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  color: #333;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+}
+
+/* 器材列表 */
+.equipment-list {
+  height: calc(100vh - 200rpx); /* 预留底部确认栏高度 */
+}
+
+/* 器材条目 */
+.equipment-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24rpx;
+  margin-bottom: 12rpx;
+  background-color: #ffffff;
+  border-radius: 10rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.06);
+}
+
+.equipment-item.selected {
+  background-color: #e6f7ff;
+  border: 1px solid #1890ff;
+}
+
+/* 左侧信息 */
+.item-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.item-name {
+  font-size: 30rpx;
+  color: #333333;
+  font-weight: 500;
+}
+
+.item-code {
+  font-size: 24rpx;
+  color: #666666;
+}
+
+/* 右侧选中对勾 */
+.item-right {
+  display: flex;
+  align-items: center;
+}
+
+.check-text {
+  width: 44rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+  text-align: center;
+  background-color: #1890ff;
+  color: #ffffff;
+  border-radius: 50%;
+  font-size: 28rpx;
+}
+
+/* 🌟 底部确认栏：美化核心 */
+.confirm-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 30rpx;
+  background-color: #ffffff;
+  box-shadow: 0 -2rpx 15rpx rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  z-index: 999;
+}
+
+/* 已选数量样式：突出数字 */
+.selected-count-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6rpx;
+}
+
+.count-label {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.count-num {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #1890ff;
+}
+
+.count-unit {
+  font-size: 26rpx;
+  color: #666;
+}
+
+/* 确认按钮：渐变、圆角、阴影 */
+.confirm-btn {
+  min-width: 200rpx;
+  padding: 18rpx 36rpx;
+  background: linear-gradient(90deg, #1890ff, #096dd9);
+  color: #ffffff;
+  border-radius: 60rpx; /* 全圆角 */
+  font-size: 30rpx;
+  font-weight: 500;
+  box-shadow: 0 4rpx 12rpx rgba(24, 144, 255, 0.3);
+}
+
+/* 去除小程序默认按钮边框 */
+.confirm-btn::after {
+  border: none;
+}
+
+/* 点击态：深色渐变+缩小动画 */
+.confirm-btn-hover {
+  background: linear-gradient(90deg, #096dd9, #055aaf);
+  transform: scale(0.98);
+  transition: all 0.2s ease;
+}

@@ -1,0 +1,9 @@
+{
+	"usingComponents": {
+
+	},
+	"navigationBarBackgroundColor": "#1C9399",
+	"navigationBarTextStyle": "white", 
+	"disableScroll": true, 
+	"navigationBarTitleText": "隐患工单处理"
+}

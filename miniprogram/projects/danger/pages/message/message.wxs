@@ -1,0 +1,26 @@
+// message.wxs
+function padZero(num) {
+  // WXS 兼容的补零方法（替代 padStart）
+  return num < 10 ? '0' + num : '' + num;
+}
+
+function formatDate(dateStr) {
+  if (!dateStr) {
+    return '未填写';
+  }
+  
+  var date = getDate(dateStr);
+  if (isNaN(date.getTime())) {
+    return '无效时间';
+  }
+  
+  var year = date.getFullYear();
+  var month = padZero(date.getMonth() + 1);
+  var day = padZero(date.getDate());
+  
+  return year + '-' + month + '-' + day;
+}
+
+module.exports = {
+  formatDate: formatDate
+};

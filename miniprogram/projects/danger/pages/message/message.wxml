@@ -1,0 +1,60 @@
+<wxs src="./message.wxs" module="utils" />
+<view class="message-container">
+  <!-- 顶部提醒统计 -->
+  <view class="notice-header">
+    <text class="notice-title">器材状态提醒</text>
+    <text class="notice-count" wx:if="{{unreadCount > 0}}">{{unreadCount}}条未读</text>
+  </view>
+
+  <!-- 无提醒时的空状态 -->
+  <view class="empty-view" wx:if="{{expireList.length === 0}}">
+    <image src="/images/empty.png" class="empty-img"></image>
+    <text class="empty-text">暂无器材过期提醒</text>
+  </view>
+
+  <!-- 提醒列表（彻底分离事件：列表项和按钮各自独立） -->
+  <scroll-view class="notice-list" scroll-y>
+    <view 
+      class="notice-item {{!item.isRead ? 'unread' : ''}}"
+      wx:for="{{expireList}}"
+      wx:key="_id"
+    >
+      <!-- 左侧：点击区域 → 详情页 -->
+      <view 
+        class="item-left"
+        bindtap="goToEquipmentDetail"
+        data-item="{{item}}"
+      >
+        <!-- 状态标签 -->
+        <view class="status-tag {{item.EQ_STATUS === '已过期' ? 'expired' : 'soon-expire'}}">
+          {{item.EQ_STATUS}}
+        </view>
+        
+        <!-- 器材信息 -->
+        <view class="item-content">
+          <view class="item-title">{{item.EQ_NAME}}</view>
+          <view class="item-desc">
+            <text>编号：{{item.EQ_CODE}}</text>
+            <text>位置：{{item.EQ_LOCATION}}</text>
+          </view>
+          <view class="item-time">到期时间：{{utils.formatDate(item.EQ_EXPIRE_DATE) || '未填写'}}</view>
+        </view>
+
+        <!-- 未读标签 -->
+        <view class="read-tag" wx:if="{{!item.isRead}}">未读</view>
+      </view>
+
+      <!-- 右侧：替换按钮区域 → 替换页（彻底独立，不触发详情） -->
+      <view class="item-right">
+        <button 
+          class="replace-btn" 
+          bindtap="goToReplace" 
+          data-id="{{item._id}}"
+          hover-class="none"
+        >
+          替换器材
+        </button>
+      </view>
+    </view>
+  </scroll-view>
+</view>

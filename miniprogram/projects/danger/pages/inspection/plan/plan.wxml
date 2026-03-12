@@ -1,0 +1,29 @@
+<view class="container">
+  <button class="create-btn" bindtap="goToCreatePlan">创建月度巡检计划</button>
+
+  <view class="plan-list" wx:if="{{planList.length > 0}}">
+    <view 
+      class="plan-item" 
+      wx:for="{{planList}}" 
+      wx:key="_id"
+      bindtap="goToRecordList"
+      data-planid="{{item._id}}"
+    >
+      <view class="plan-header">
+        <text class="month">{{item.month}}月巡检计划</text>
+        <view class="status-tag {{item.status === '已完成' ? 'completed' : (item.status === '进行中' ? 'processing' : 'pending')}}">
+          {{item.status}}
+        </view>
+      </view>
+      <view class="plan-info">
+        <text>需巡检器材：{{item.equipmentIds.length}} 个</text>
+        <!-- 关键修改：使用预处理好的 displayTime -->
+        <text>巡检时间：{{item.displayTime}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-view" wx:else>
+    <text>暂无巡检计划，点击上方按钮创建</text>
+  </view>
+</view>

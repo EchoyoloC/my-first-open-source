@@ -1,0 +1,148 @@
+.message-container {
+  padding: 20rpx;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+.notice-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20rpx;
+}
+
+.notice-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.notice-count {
+  font-size: 24rpx;
+  color: #f53f3f;
+  background-color: #fff3f3;
+  padding: 4rpx 12rpx;
+  border-radius: 12rpx;
+}
+
+.empty-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 200rpx;
+}
+
+.empty-img {
+  width: 200rpx;
+  height: 200rpx;
+  margin-bottom: 20rpx;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.notice-list {
+  height: calc(100vh - 160rpx);
+}
+
+.notice-item {
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  margin-bottom: 15rpx;
+  display: flex;
+  align-items: flex-start;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.05);
+}
+
+.notice-item.unread {
+  border-left: 6rpx solid #f53f3f;
+}
+
+/* 左侧：详情点击区域 */
+.item-left {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* 右侧：替换按钮区域（独立，不触发详情） */
+.item-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-left: 20rpx;
+}
+
+.status-tag {
+  padding: 8rpx 12rpx;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  color: #fff;
+  margin-right: 15rpx;
+  white-space: nowrap;
+}
+
+.status-tag.expired {
+  background-color: #f53f3f;
+}
+
+.status-tag.soon-expire {
+  background-color: #ff7d00;
+}
+
+.item-content {
+  flex: 1;
+}
+
+.item-title {
+  font-size: 32rpx;
+  color: #333;
+  margin-bottom: 10rpx;
+  font-weight: 500;
+}
+
+.item-desc {
+  font-size: 26rpx;
+  color: #666;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8rpx;
+}
+
+.item-time {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.read-tag {
+  font-size: 22rpx;
+  color: #f53f3f;
+  background-color: #fff3f3;
+  padding: 4rpx 8rpx;
+  border-radius: 6rpx;
+}
+
+.replace-btn {
+  background-color: #1890ff;
+  color: #fff;
+  border-radius: 8rpx;
+  padding: 8rpx 16rpx;
+  font-size: 24rpx;
+  line-height: 36rpx;
+  width: 160rpx;
+  box-shadow: 0 2rpx 4rpx rgba(24,144,255,0.2);
+}
+
+.replace-btn::after {
+  border: none;
+}
+
+.replace-btn:active {
+  background-color: #096dd9;
+  transform: scale(0.98);
+}

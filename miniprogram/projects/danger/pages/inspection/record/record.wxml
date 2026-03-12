@@ -1,0 +1,37 @@
+<view class="container">
+  <!-- 加载中 -->
+  <view class="loading-view" wx:if="{{loading}}">
+    <text>加载巡检记录中...</text>
+  </view>
+
+  <!-- 空数据 -->
+  <view class="empty-view" wx:elif="{{recordList.length === 0}}">
+    <text>暂无该计划的巡检记录</text>
+  </view>
+
+  <!-- 巡检记录列表 -->
+  <view class="record-list" wx:else>
+    <view 
+      class="record-item" 
+      wx:for="{{recordList}}" 
+      wx:key="_id"
+      bindtap="goToFillRecord"
+      data-recordid="{{item._id}}"
+      data-planid="{{item.planId}}"
+    >
+      <view class="item-header">
+        <text class="name">{{item.equipment.EQ_NAME || '未命名器材'}}</text>
+        <view class="status-tag {{item.status === '已巡检' ? 'completed' : 'pending'}}">
+          {{item.status}}
+        </view>
+      </view>
+      <view class="item-info">
+        <text>器材编号：{{item.equipment.EQ_CODE || '无编号'}}</text>
+        <text>器材位置：{{item.equipment.EQ_LOCATION || '无位置'}}</text>
+        <!-- 直接绑定预处理好的 inspectTimeStr 字段 -->
+        <text wx:if="{{item.inspectTimeStr}}">巡检时间：{{item.inspectTimeStr}}</text>
+        <text wx:if="{{item.result}}">巡检结果：{{item.result}}</text>
+      </view>
+    </view>
+  </view>
+</view>

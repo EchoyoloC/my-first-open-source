@@ -1,0 +1,123 @@
+.replace-container {
+  padding: 20rpx;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+.replace-header {
+  padding: 20rpx 0;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20rpx;
+}
+
+.replace-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 步骤卡片样式 */
+.step-card {
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 25rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+.step-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.step-num {
+  display: inline-block;
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  border-radius: 50%;
+  background-color: #1890ff;
+  color: #fff;
+  text-align: center;
+  font-size: 24rpx;
+  margin-right: 15rpx;
+}
+
+/* 待替换器材信息 */
+.old-equipment-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+  font-size: 26rpx;
+  color: #666;
+}
+
+/* 选择新器材区域 */
+.select-new-equip {
+  padding: 20rpx 0;
+}
+
+.selected-info {
+  font-size: 28rpx;
+  color: #07c160;
+  padding: 15rpx;
+  background-color: #f0fdf4;
+  border-radius: 8rpx;
+}
+
+.unselected-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20rpx;
+}
+
+.unselected-info text {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.select-btn {
+  background-color: #1890ff;
+  color: #fff;
+  border-radius: 8rpx;
+  padding: 15rpx 30rpx;
+  font-size: 28rpx;
+}
+
+.select-btn::after {
+  border: none;
+}
+
+/* 日期选择器 */
+.date-picker {
+  padding: 20rpx;
+  border: 1px solid #eee;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+/* 提交按钮区域 */
+.submit-area {
+  margin-top: 30rpx;
+}
+
+.submit-btn {
+  background-color: #07c160;
+  color: #fff;
+  border-radius: 30rpx;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+
+.submit-btn::after {
+  border: none;
+}
+
+.submit-btn:active {
+  background-color: #05965a;
+  transform: scale(0.98);
+}

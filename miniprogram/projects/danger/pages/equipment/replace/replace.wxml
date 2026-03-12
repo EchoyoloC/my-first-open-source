@@ -1,0 +1,46 @@
+<wxs src="../../message/message.wxs" module="utils" />
+<view class="replace-container">
+  <view class="replace-header">
+    <text class="replace-title">替换过期器材</text>
+  </view>
+
+  <!-- 步骤1：待替换旧器材 -->
+  <view class="step-card">
+    <view class="step-title">
+      <text class="step-num">1</text>
+      <text>待替换器材</text>
+    </view>
+    <view class="old-equipment-info">
+      <text>器材名称：{{oldEquipment.EQ_NAME || '未命名'}}</text>
+      <text>器材编号：{{oldEquipment.EQ_CODE || '无编号'}}</text>
+      <text>过期状态：{{oldEquipment.EQ_STATUS || '未知'}}</text>
+      <text>原有效期至：{{utils.formatDate(oldEquipment.EQ_EXPIRE_DATE) || '未填写'}}</text>
+    </view>
+  </view>
+
+  <!-- 步骤2：已选新器材（复用录入时的有效期） -->
+  <view class="step-card">
+    <view class="step-title">
+      <text class="step-num">2</text>
+      <text>已选新器材</text>
+    </view>
+    <view wx:if="{{newEquipment.EQ_NAME}}" class="selected-info">
+      <text>✅ 名称：{{newEquipment.EQ_NAME}}</text>
+      <text>编号：{{newEquipment.EQ_CODE}}</text>
+      <text>有效期至：{{utils.formatDate(newEquipment.EQ_EXPIRE_DATE) || '未填写'}}</text>
+    </view>
+    <view wx:else class="unselected-info">
+      <text class="warn-text">⚠️ 请选择一个未过期的新器材</text>
+      <button class="select-btn" bindtap="selectNewEquipment" hover-class="none">
+        点击选择新器材
+      </button>
+    </view>
+  </view>
+
+  <!-- 提交按钮：仅选中新器材后显示 -->
+  <view class="submit-area" wx:if="{{newEquipment.EQ_NAME}}">
+    <button class="submit-btn" bindtap="submitReplace" hover-class="none">
+      确认替换器材
+    </button>
+  </view>
+</view>

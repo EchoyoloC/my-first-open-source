@@ -1,0 +1,52 @@
+<!-- equipment.wxml -->
+<view class="container">
+  <view class="form-item">
+    <text class="label">器材编号</text>
+    <input class="input" placeholder="请输入器材编号（如 XF-001）" bindinput="onCodeInput" />
+  </view>
+
+  <view class="form-item">
+    <text class="label">器材名称</text>
+    <input class="input" placeholder="请输入器材名称（如 干粉灭火器）" bindinput="onNameInput" />
+  </view>
+
+  <view class="form-item">
+    <text class="label">位置</text>
+    <input class="input" placeholder="请输入安装位置（如 1F大堂）" bindinput="onLocationInput" />
+  </view>
+
+  <view class="form-item">
+    <text class="label">规格型号</text>
+    <input class="input" placeholder="请输入规格型号（如 MFZ/ABC4）" bindinput="onModelInput" />
+  </view>
+
+  <view class="form-item">
+    <text class="label">生产日期</text>
+    <picker mode="date" value="{{formData.EQ_PROD_DATE}}" bindchange="onProdDateChange">
+      <view class="picker">{{formData.EQ_PROD_DATE || '请选择生产日期'}}</view>
+    </picker>
+  </view>
+
+  <view class="form-item">
+    <text class="label">保质期（天）</text>
+    <input class="input" type="number" placeholder="请输入保质期天数（如 365）" bindinput="onWarrantyInput" />
+  </view>
+
+<!-- 新增：器材图片上传区域 -->
+<view class="form-item">
+  <text class="form-label">器材图片</text>
+  <view class="upload-area">
+    <!-- 已上传图片预览 -->
+    <view class="img-preview" wx:if="{{equipmentImg}}">
+      <image src="{{equipmentImg}}" mode="aspectFill"></image>
+      <button class="delete-img" bindtap="deleteImg">×</button>
+    </view>
+    <!-- 未上传时的按钮 -->
+    <button class="upload-btn" wx:else bindtap="chooseImg" loading="{{uploading}}">
+      {{uploading ? '上传中...' : '选择/拍摄图片'}}
+    </button>
+  </view>
+</view>
+
+  <button class="submit-btn" bindtap="submitEquipment">提交器材信息</button>
+</view>

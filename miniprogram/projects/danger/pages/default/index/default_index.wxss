@@ -1,0 +1,110 @@
+@import "../../../style/skin.wxss";
+
+
+
+.main {
+	padding: 0;
+}
+
+.top {
+	width: 100%;
+}
+
+.top image {
+	width: 100%;
+}
+
+.box {
+	width: 100%;
+	padding: 100rpx 40rpx 20rpx;
+	border-top-right-radius: 45rpx;
+	border-top-left-radius: 45rpx;
+	margin-top: -150rpx;
+	position: relative; 
+}
+
+.box .inner {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.box .inner .item {
+	width: calc((100% - 40rpx) / 2);
+	margin-bottom: 30rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 40rpx;
+	overflow: hidden;
+	flex-direction: column;
+	background-color: #fff;
+	padding: 20rpx;
+}
+
+.box .inner .item:nth-child(2n+1) {
+	margin-right: 40rpx;
+}
+
+
+.box .inner .item image {
+	width: 180rpx;
+	height: 180rpx;
+}
+
+.box .inner .item text {
+	width: 100%;
+	font-weight: bold;
+	font-size: 28rpx;
+	text-align: center;
+	color: var(--projectColor)
+}
+/* 分割样式 */
+.home-notice {
+  position: relative;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  background-color: #fff;
+  border-radius: 12rpx;
+  margin: 20rpx;
+  margin-bottom: 70rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.05);
+}
+
+.notice-icon {
+  position: relative;
+  margin-right: 15rpx;
+}
+
+.icon-img {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.red-dot {
+  position: absolute;
+  top: -5rpx;
+  right: -5rpx;
+  width: 30rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  text-align: center;
+  background-color: #f53f3f;
+  color: #fff;
+  font-size: 20rpx;
+  border-radius: 50%;
+}
+
+.notice-text {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.arrow-img {
+  width: 24rpx;
+  height: 24rpx;
+  opacity: 0.5;
+}

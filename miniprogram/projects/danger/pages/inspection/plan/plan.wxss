@@ -1,0 +1,75 @@
+.container {
+  padding: 20rpx;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+.create-btn {
+  background-color: #07c160;
+  color: #fff;
+  border-radius: 30rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.plan-list {
+  gap: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.plan-item {
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+}
+
+.plan-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15rpx;
+}
+
+.month {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333;
+}
+
+.status-tag {
+  padding: 6rpx 16rpx;
+  border-radius: 6rpx;
+  font-size: 24rpx;
+  color: #fff;
+}
+
+.status-tag.pending {
+  background-color: #999;
+}
+
+.status-tag.processing {
+  background-color: #ff7d00;
+}
+
+.status-tag.completed {
+  background-color: #07c160;
+}
+
+.plan-info {
+  font-size: 26rpx;
+  color: #666;
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.empty-view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400rpx;
+  font-size: 28rpx;
+  color: #999;
+}

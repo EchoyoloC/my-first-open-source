@@ -1,0 +1,63 @@
+.container {
+  padding: 20rpx;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+.loading-view,
+.empty-view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400rpx;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.record-list {
+  gap: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.record-item {
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15rpx;
+}
+
+.name {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333;
+}
+
+.status-tag {
+  padding: 6rpx 16rpx;
+  border-radius: 6rpx;
+  font-size: 24rpx;
+  color: #fff;
+}
+
+.status-tag.pending {
+  background-color: #ff7d00;
+}
+
+.status-tag.completed {
+  background-color: #07c160;
+}
+
+.item-info {
+  font-size: 26rpx;
+  color: #666;
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}

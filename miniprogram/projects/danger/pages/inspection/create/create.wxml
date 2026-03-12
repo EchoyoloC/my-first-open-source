@@ -1,0 +1,29 @@
+<view class="container">
+  <!-- 月份选择 -->
+  <view class="form-item">
+    <text class="label">巡检月份</text>
+    <picker mode="date" value="{{selectedMonth}}" start="2020-01-01" end="2030-12-31" bindchange="onMonthChange">
+      <view class="picker">{{selectedMonth || '请选择月份'}}</view>
+    </picker>
+  </view>
+
+  <!-- 选择器材 -->
+  <view class="form-item">
+    <text class="label">选择需巡检器材</text>
+    <button bindtap="selectEquipment">选择器材（已选：{{selectedEquipments.length}}个）</button>
+  </view>
+
+  <!-- 已选器材列表 -->
+<view class="selected-list" wx:if="{{selectedEquipments.length > 0}}">
+  <view class="list-title">已选器材（{{selectedEquipments.length}}个）</view>
+  <view class="selected-item" wx:for="{{selectedEquipments}}" wx:key="_id">
+    <text>{{index+1}}. {{item.EQ_NAME}}（{{item.EQ_CODE}}）</text>
+    <icon type="clear" size="16" bindtap="removeEquipment" data-id="{{item._id}}" />
+  </view>
+</view>
+
+  <!-- 提交按钮 -->
+  <button class="submit-btn" bindtap="submitPlan" wx:if="{{selectedMonth && selectedEquipments.length > 0}}">
+    创建巡检计划
+  </button>
+</view>

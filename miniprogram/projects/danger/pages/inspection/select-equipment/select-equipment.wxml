@@ -1,0 +1,45 @@
+<view class="select-container">
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <input 
+      type="text" 
+      placeholder="请输入器材名称/编号搜索" 
+      value="{{searchKey}}"
+      bindinput="onSearchInput"
+      class="search-input"
+    />
+  </view>
+
+  <!-- 器材列表 -->
+  <scroll-view class="equipment-list" scroll-y>
+    <view 
+      class="equipment-item {{item.checked ? 'selected' : ''}}"
+      wx:for="{{filteredList}}"
+      wx:key="_id"
+      bindtap="selectEquipment"
+      data-id="{{item._id}}"
+    >
+      <view class="item-left">
+        <text class="item-name">{{item.EQ_NAME}}</text>
+        <text class="item-code">编号：{{item.EQ_CODE}}</text>
+      </view>
+      <view class="item-right" wx:if="{{item.checked}}">
+        <text class="check-text">✓</text>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 底部确认栏（美化核心）：仅多选模式显示 -->
+  <view class="confirm-bar" wx:if="{{!singleSelect}}">
+    <!-- 已选数量：突出显示 -->
+    <view class="selected-count-wrap">
+      <text class="count-label">已选</text>
+      <text class="count-num">{{selectedEquipments.length}}</text>
+      <text class="count-unit">个器材</text>
+    </view>
+    <!-- 确认按钮：圆角、渐变、阴影 -->
+    <button class="confirm-btn" bindtap="confirmSelect" hover-class="confirm-btn-hover">
+      确认选择
+    </button>
+  </view>
+</view>

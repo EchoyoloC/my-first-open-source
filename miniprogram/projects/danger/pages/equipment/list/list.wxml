@@ -1,0 +1,81 @@
+<view class="container">
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <view class="search-input-wrapper">
+      <icon class="search-icon" type="search" size="18" color="#999" />
+      <input 
+        class="search-input" 
+        placeholder="搜索器材名称/编号/位置" 
+        value="{{searchKey}}"
+        bindinput="onSearchInput"
+      />
+    </view>
+  </view>
+
+  <!-- 新增：状态筛选栏 -->
+  <view class="filter-bar" wx:if="{{!loading}}">
+    <view 
+      class="filter-item {{activeStatus === '' ? 'active' : ''}}"
+      bindtap="onStatusChange"
+      data-status=""
+    >
+      全部
+    </view>
+    <view 
+      class="filter-item {{activeStatus === '正常' ? 'active' : ''}}"
+      bindtap="onStatusChange"
+      data-status="正常"
+    >
+      正常
+    </view>
+    <view 
+      class="filter-item {{activeStatus === '即将过期' ? 'active' : ''}}"
+      bindtap="onStatusChange"
+      data-status="即将过期"
+    >
+      即将过期
+    </view>
+    <view 
+      class="filter-item {{activeStatus === '已过期' ? 'active' : ''}}"
+      bindtap="onStatusChange"
+      data-status="已过期"
+    >
+      已过期
+    </view>
+  </view>
+
+  <!-- 加载中 -->
+  <view class="loading-view" wx:if="{{loading}}">
+    <text>加载中...</text>
+  </view>
+
+  <!-- 空数据 -->
+  <view class="empty-view" wx:elif="{{filteredList.length === 0}}">
+    <text>暂无符合条件的器材数据</text>
+  </view>
+
+  <!-- 器材列表 -->
+  <view class="list-wrapper" wx:else>
+    <view 
+      class="list-item" 
+      wx:for="{{filteredList}}" 
+      wx:key="_id"
+      bindtap="goToDetail"
+      data-id="{{item._id}}"
+    >
+      <view class="item-header">
+        <text class="name">{{item.EQ_NAME || '未命名'}}</text>
+        <view class="status-tag {{item.EQ_STATUS === '已过期' ? 'expired' : (item.EQ_STATUS === '即将过期' ? 'soon' : 'normal')}}">
+          {{item.EQ_STATUS || '正常'}}
+        </view>
+      </view>
+      <view class="item-info">
+        <text>编号：{{item.EQ_CODE || '无编号'}}</text>
+        <text>位置：{{item.EQ_LOCATION || '无位置'}}</text>
+        <text>到期：{{utils.formatDate(item.EQ_EXPIRE_DATE) || '无到期时间'}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<wxs src="../detail/detail.wxs" module="utils" />

@@ -1,0 +1,45 @@
+<view class="container">
+  <!-- 巡检结果选择 -->
+  <view class="form-item">
+    <text class="label">巡检结果</text>
+    <radio-group bindchange="onResultChange">
+      <label class="radio-item">
+        <radio value="正常" checked="{{result === '正常'}}" /> 正常
+      </label>
+      <label class="radio-item">
+        <radio value="异常" checked="{{result === '异常'}}" /> 异常
+      </label>
+    </radio-group>
+  </view>
+
+  <!-- 问题描述（仅异常时显示） -->
+  <view class="form-item" wx:if="{{result === '异常'}}">
+    <text class="label">问题描述</text>
+    <textarea 
+      class="textarea" 
+      placeholder="请详细描述巡检发现的问题（如：器材损坏、精度异常等）"
+      value="{{problemDesc}}"
+      bindinput="onProblemDescInput"
+    ></textarea>
+  </view>
+
+  <!-- 水印图片上传（始终显示，适配水印相机） -->
+  <view class="form-item">
+    <text class="label">巡检水印图片（必填）</text>
+    <button bindtap="uploadImg">请提供水印相机图片</button>
+    <view class="img-preview-wrapper" wx:if="{{problemImg}}">
+      <image 
+        class="preview-img" 
+        src="{{problemImg}}" 
+        mode="aspectFit"
+        bindtap="previewImage"
+      ></image>
+      <button class="del-img-btn" bindtap="deleteImage">删除</button>
+    </view>
+  </view>
+
+  <!-- 提交按钮（选择结果+上传图片后显示） -->
+  <button class="submit-btn" bindtap="submitRecord" wx:if="{{result && problemImg}}">
+    提交巡检记录
+  </button>
+</view>

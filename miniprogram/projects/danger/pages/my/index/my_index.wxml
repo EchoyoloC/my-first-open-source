@@ -1,0 +1,126 @@
+<view class="main {{skin.IS_SUB?'sub-margin-bottom':''}}">
+	<!--top area begin-->
+	<view class="upside upside-shadow">
+		<image mode="widthFix" lazy-load class="upImg loading" src="../../../images/my.jpg" />
+	</view>
+	<!--top area end-->
+
+	<!--down area begin-->
+	<vew class="info">
+		<view class="inner">
+			<view class="left" bindtap="url" data-url="{{user?'../edit/my_edit':'../reg/my_reg'}}">
+				<view class="line">
+					<text class="text-bold">{{user?user.USER_NAME:'欢迎回家~~~'}}</text>
+					<view wx:if="{{user.USER_STATUS==9}}" class="margin-left-xs tag small radius bg-purple light">禁用</view>
+					<view wx:elif="{{user&&user.USER_STATUS==0}}" class="margin-left-xs tag small radius bg-orange light">已注册，待审核</view>
+					<view wx:elif="{{user&&user.USER_STATUS==8}}" class="margin-left-xs tag small radius bg-red light">审核未通过，请修改资料</view>
+
+				</view>
+				<view class="line text-s">{{user?'欢迎回来~~~':'马上注册，使用更多功能'}}</view>
+			</view>
+			<view class="right"></view>
+		</view>
+	</vew>
+	<view class="down">
+		<view class="pic">
+			<image mode="aspectFit" src="../../../images/tabbar/my_cur.png" />
+		</view>
+
+		<view class="repair">
+			 
+			<view class="item-list">
+				<view class="item" bindtap="url" data-url="../../task/my_list/task_my_list?status=0">
+					<view wx:if="{{task&&task.status0Cnt}}" class="num">{{task.status0Cnt}}</view>
+					<image src="../../../images/my/task_0.png" />
+					<text>待派工</text>
+				</view>
+				<view class="item" bindtap="url" data-url="../../task/my_list/task_my_list?status=1">
+					<view wx:if="{{task&&task.status1Cnt}}" class="num">{{task.status1Cnt}}</view>
+					<image src="../../../images/my/task_1.png" />
+					<text>待处理</text>
+				</view>
+				<view class="item" bindtap="url" data-url="../../task/my_list/task_my_list?status=2">
+					<view wx:if="{{task&&task.status2Cnt}}" class="num">{{task.status2Cnt}}</view>
+					<image src="../../../images/my/task_2.png" />
+					<text>处理中</text>
+				</view>
+				<view class="item" bindtap="url" data-url="../../task/my_list/task_my_list?status=9">
+					<view wx:if="{{task&&task.status9Cnt}}" class="num">{{task.status9Cnt}}</view>
+					<image src="../../../images/my/task_9.png" />
+					<text>已完成</text>
+				</view>
+				<view style="height: 100rpx;width: 2rpx;border-left: 2rpx dashed #ccc;"></view>
+				<view class="item" bindtap="url" data-url="../../task/my_list/task_my_list"> 
+					<image src="../../../images/my/task_all.png" />
+					<text>全部</text>
+				</view>
+			</view>
+		</view>
+
+		<view class="menu-list">  
+			 
+
+			<view wx:if="{{user&&user.USER_STATUS!=9}}" class="item" bindtap="url" data-url="../edit/my_edit">
+				<image src="../../../images/my/edit.png" />
+				<view class="line">
+					<view class="left">修改我的资料</view>
+				</view>
+			</view>
+
+
+			<view class="item" bindtap="url" data-url="../fav/my_fav">
+				<image src="../../../images/my/unit.png" />
+				<view class="line">
+					<view class="left">我的收藏</view>
+				</view>
+			</view>
+
+			<view class="item" bindtap="url" data-url="../foot/my_foot">
+				<image src="../../../images/my/score.png" />
+				<view class="line">
+					<view class="left">历史浏览</view>
+				</view>
+			</view>
+
+			<view wx:if="{{skin.IS_SUB}}" class="item" bindtap="bindSetTap">
+				<image src="../../../images/my/set.png" />
+				<view class="line">
+					<view class="left text-red text-bold">系统后台管理<text class="text-grey text-normal">（点击使用）</text></view>
+				</view>
+			</view>
+
+			<view class="item" bindtap="url" data-url="../../about/index/about_index?key=SETUP_CONTENT_ABOUT">
+				<image src="../../../images/my/about.png" />
+				<view class="line">
+					<view class="left">关于我们</view>
+				</view>
+			</view>
+
+			<view wx:if="{{skin.IS_SUB}}" class="item" bindtap="url" data-url="/pages/home/about/home_about">
+				<image src="../../../images/my/link.png" />
+				<view class="line">
+					<view class="left text-orange">联系作者了解更多详情</view>
+				</view>
+			</view>
+
+			<view wx:if="{{!skin.IS_SUB}}" class="item" bindtap="bindSetTap">
+				<image src="../../../images/my/set.png" />
+				<view class="line">
+					<view class="left">设置</view>
+				</view>
+			</view>
+
+		</view>
+
+	</view>
+	<!--down area end-->
+
+</view>
+<view style="height:100rpx"></view>
+
+
+
+<block wx:if="{{skin.IS_SUB}}">
+	<import src="../../tpls/menu_tpl.wxml" />
+	<template is="menuTpl" data="{{curMenu:'my_index',returnHome:false}}" />
+</block>

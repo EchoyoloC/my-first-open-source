@@ -1,0 +1,115 @@
+{
+  "pages": [
+    "projects/danger/pages/default/index/default_index",
+    "projects/danger/pages/about/index/about_index",
+    "projects/danger/pages/search/search",
+    "projects/danger/pages/my/index/my_index",
+    "projects/danger/pages/my/reg/my_reg",
+    "projects/danger/pages/my/edit/my_edit",
+    "projects/danger/pages/my/foot/my_foot",
+    "projects/danger/pages/my/fav/my_fav",
+    "projects/danger/pages/news/index/news_index",
+    "projects/danger/pages/news/cate1/news_cate1",
+    "projects/danger/pages/news/cate2/news_cate2",
+    "projects/danger/pages/news/detail/news_detail",
+    "projects/danger/pages/admin/news/list/admin_news_list",
+    "projects/danger/pages/admin/news/add/admin_news_add",
+    "projects/danger/pages/admin/news/edit/admin_news_edit",
+    "projects/danger/pages/admin/setup/about/admin_setup_about",
+    "projects/danger/pages/admin/setup/about_list/admin_setup_about_list",
+    "projects/danger/pages/admin/setup/qr/admin_setup_qr",
+    "projects/danger/pages/admin/index/home/admin_home",
+    "projects/danger/pages/admin/index/login/admin_login",
+    "projects/danger/pages/admin/content/admin_content",
+    "projects/danger/pages/admin/mgr/log/admin_log_list",
+    "projects/danger/pages/admin/mgr/edit/admin_mgr_edit",
+    "projects/danger/pages/admin/mgr/list/admin_mgr_list",
+    "projects/danger/pages/admin/mgr/add/admin_mgr_add",
+    "projects/danger/pages/admin/mgr/pwd/admin_mgr_pwd",
+    "projects/danger/pages/admin/user/list/admin_user_list",
+    "projects/danger/pages/admin/user/detail/admin_user_detail",
+    "projects/danger/pages/admin/user/export/admin_user_export",
+    "projects/danger/pages/task/add/task_add",
+    "projects/danger/pages/task/my_list/task_my_list",
+    "projects/danger/pages/task/edit/task_edit",
+    "projects/danger/pages/admin/task/list/admin_task_list",
+    "projects/danger/pages/admin/task/detail/admin_task_detail",
+    "projects/danger/pages/admin/task/export/admin_task_export",
+    "projects/danger/pages/admin/member/list/admin_member_list",
+    "projects/danger/pages/admin/member/add/admin_member_add",
+    "projects/danger/pages/admin/member/edit/admin_member_edit",
+    "projects/danger/pages/work/index/home/work_home",
+    "projects/danger/pages/work/index/login/work_login",
+    "projects/danger/pages/work/index/pwd/work_pwd",
+    "projects/danger/pages/work/task/list/work_task_list",
+    "projects/danger/pages/work/task/run/work_task_run",
+    "projects/danger/pages/work/task/detail/work_task_detail",
+    "projects/danger/pages/work/task/over/work_task_over",
+    "projects/danger/pages/admin/task/add/admin_task_add",
+    "projects/danger/pages/admin/task/edit/admin_task_edit",
+    "projects/danger/pages/task/comment/task_comment",
+    "cmpts/public/form/form_set/field/form_set_field",
+    "cmpts/public/form/form_show/content/form_show_content",
+    "pages/test1/test1",
+    "projects/danger/pages/equipment/equipment",
+    "projects/danger/pages/equipment/detail/detail",
+    "projects/danger/pages/equipment/list/list",
+    "projects/danger/pages/message/message",
+    "projects/danger/pages/equipment/replace/replace",
+    "projects/danger/pages/inspection/plan/plan",
+    "projects/danger/pages/inspection/create/create",
+    "projects/danger/pages/inspection/record/record",
+    "projects/danger/pages/inspection/fill/fill",
+    "projects/danger/pages/inspection/select-equipment/select-equipment"
+  ],
+  "window": {
+    "backgroundColor": "#f1f1f1",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#2662D1",
+    "navigationBarTitleText": "巡检和隐患上报小程序",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "custom": false,
+    "backgroundColor": "#FFFFFF",
+    "color": "#999999",
+    "selectedColor": "#2662D1",
+    "list": [
+      {
+        "pagePath": "projects/danger/pages/default/index/default_index",
+        "text": "首页",
+        "iconPath": "/projects/danger/images/tabbar/home.png",
+        "selectedIconPath": "/projects/danger/images/tabbar/home_cur.png"
+      },
+      {
+        "pagePath": "projects/danger/pages/equipment/equipment",
+        "text": "器材录入",
+        "iconPath": "/projects/danger/images/tabbar/equipment.png",
+        "selectedIconPath": "/projects/danger/images/tabbar/equipment_cur.png"
+      },
+      {
+        "pagePath": "projects/danger/pages/task/add/task_add",
+        "text": "隐患上报",
+        "iconPath": "/projects/danger/images/tabbar/add.png",
+        "selectedIconPath": "/projects/danger/images/tabbar/add_cur.png"
+      },
+      {
+        "pagePath": "projects/danger/pages/my/index/my_index",
+        "text": "我的",
+        "iconPath": "/projects/danger/images/tabbar/my.png",
+        "selectedIconPath": "/projects/danger/images/tabbar/my_cur.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "获取你当前位置信息用于小程序位置接口的效果展示"
+    }
+  },
+  "usingComponents": {
+    "cmpt-comm-list": "/cmpts/public/list/comm_list_cmpt",
+    "cmpt-picker": "/cmpts/public/picker/picker_cmpt",
+    "cmpt-modal": "/cmpts/public/modal/modal_cmpt"
+  },
+  "sitemapLocation": "sitemap.json"
+}

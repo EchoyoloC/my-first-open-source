@@ -1,0 +1,65 @@
+<wxs src="./detail.wxs" module="utils" />
+
+<view class="detail-container">
+  <!-- 加载中状态（仅保留一处） -->
+  <view class="loading-view" wx:if="{{loading}}">
+    <text>加载器材详情中...</text>
+  </view>
+
+  <!-- 详情内容（加载完成后显示） -->
+  <view class="content" wx:else>
+    <!-- 空数据提示（优先展示） -->
+    <view class="empty-view" wx:if="{{!equipment._id}}">
+      <text>未查询到该器材的详情信息</text>
+    </view>
+
+    <!-- 有数据时展示内容 -->
+    <view wx:else>
+      <!-- 状态标签（顶部醒目展示） -->
+      <view class="status-tag {{equipment.EQ_STATUS === '已过期' ? 'expired' : 'soon-expire'}}">
+        {{equipment.EQ_STATUS || '未知状态'}}
+      </view>
+
+      <!-- 新增：器材图片展示区域 -->
+      <view class="img-area" wx:if="{{equipment.EQ_IMG}}">
+        <text class="img-label">器材图片：</text>
+        <!-- 兼容fileID和URL两种格式，点击可预览 -->
+        <image 
+  src="{{equipment.EQ_IMG}}" 
+  mode="aspectFit" 
+  class="equipment-img"
+  bindtap="previewImg"
+/>
+      </view>
+
+      <!-- 器材基本信息 -->
+      <view class="info-list">
+        <view class="info-item">
+          <text class="label">器材名称：</text>
+          <text class="value">{{equipment.EQ_NAME || '未填写'}}</text>
+        </view>
+        <view class="info-item">
+          <text class="label">器材编号：</text>
+          <text class="value">{{equipment.EQ_CODE || '未填写'}}</text>
+        </view>
+        <view class="info-item">
+          <text class="label">安装位置：</text>
+          <text class="value">{{equipment.EQ_LOCATION || '未填写'}}</text>
+        </view>
+        <view class="info-item">
+          <text class="label">到期时间：</text>
+          <text class="value">{{utils.formatDate(equipment.EQ_EXPIRE_DATE) || '未填写'}}</text>
+        </view>
+        <view class="info-item">
+          <text class="label">录入时间：</text>
+          <text class="value">{{utils.formatDate(equipment.EQ_CREATE_TIME) || '未填写'}}</text>
+        </view>
+        <!-- 扩展字段示例 -->
+        <!-- <view class="info-item">
+          <text class="label">负责人：</text>
+          <text class="value">{{equipment.EQ_MANAGER || '未填写'}}</text>
+        </view> -->
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,9 @@
+{
+	"usingComponents": {
+
+	},
+	"navigationBarBackgroundColor": "#ffffff",
+	"navigationBarTextStyle": "black", 
+	"enablePullDownRefresh": true,  
+	"navigationBarTitleText": "隐患详情"
+}
